@@ -9,10 +9,11 @@ class PhotoSwipe extends React.Component {
   static propTypes = {
     isOpen: PropTypes.bool.isRequired,
     items: PropTypes.array.isRequired,
-    options: PropTypes.object,
+    options: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
     onClose: PropTypes.func,
     id: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    additionalButtons: PropTypes.array,
   };
 
   static defaultProps = {
@@ -20,7 +21,8 @@ class PhotoSwipe extends React.Component {
     onClose: () => {
     },
     id: '',
-    className: ''
+    className: '',
+    additionalButtons: [],
   };
 
   state = {
@@ -142,6 +144,14 @@ class PhotoSwipe extends React.Component {
                 title="Toggle fullscreen"
               />
               <button className="pswp__button pswp__button--zoom" title="Zoom in/out"/>
+              {this.props.additionalButtons && this.props.additionalButtons.map(button => (
+                <i
+                  title={button.title}
+                  className={`pswp__button pswp__button--extra ${button.className}`}
+                  onClick={button.onClick}
+                  style={{ margin: '15px 14px', width: 13 }}
+                />
+              ))}
               <div className="pswp__preloader">
                 <div className="pswp__preloader__icn">
                   <div className="pswp__preloader__cut">
