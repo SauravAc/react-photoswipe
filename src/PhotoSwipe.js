@@ -101,7 +101,7 @@ class PhotoSwipe extends React.Component {
       isOpen: false
     }, () => {
       if (onClose) {
-        onClose();
+        onClose(this.photoSwipe);
       }
     });
   };
@@ -148,7 +148,7 @@ class PhotoSwipe extends React.Component {
                 <i
                   title={button.title}
                   className={`pswp__button pswp__button--extra ${button.className}`}
-                  onClick={button.onClick}
+                  onClick={e => button.onClick(this.photoSwipe, e)}
                   style={{ margin: '15px 14px', width: 13 }}
                 />
               ))}
