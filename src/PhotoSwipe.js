@@ -149,7 +149,7 @@ class PhotoSwipe extends React.Component {
                   title={button.title}
                   className={`pswp__button pswp__button--extra ${button.className}`}
                   onClick={e => button.onClick(this.photoSwipe, e)}
-                  style={{ margin: '15px 14px', width: 13 }}
+                  style={{ margin: '15px 14px', width: 10 }}
                 />
               ))}
               <div className="pswp__preloader">
